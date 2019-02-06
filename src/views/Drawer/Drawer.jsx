@@ -174,7 +174,7 @@ class PersistentDrawerLeft extends React.Component {
               
             </IconButton>
             <Typography variant="h6" color="inherit" noWrap>
-              KeenAdmin ADMIN
+              KeenSuperAdmin
             </Typography>
           </Toolbar>
         </AppBar>
@@ -189,7 +189,7 @@ class PersistentDrawerLeft extends React.Component {
         >
           <div className={classes.drawerHeader}>
           <Typography variant="h6" color="inherit" noWrap>
-              KeenAdmin ADMIN
+              Panel
             </Typography>
             <IconButton onClick={this.handleDrawerClose}>
               {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
