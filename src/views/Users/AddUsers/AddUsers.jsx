@@ -256,7 +256,7 @@ class PersistentDrawerLeft extends React.Component {
                     </Grid>
                 </Grid>     
                 <Grid item xs={12} style={{textAlign:'center'}}>
-                <Button variant="contained">Add</Button>
+                <Button variant="contained">Add Button</Button>
                 </Grid>    
            </Grid>
         </main>
