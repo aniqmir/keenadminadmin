@@ -191,7 +191,7 @@ class PersistentDrawerLeft extends React.Component {
         >
           <div className={classes.drawerHeader}>
           <Typography variant="h6" color="inherit" noWrap>
-              Panel
+              SuperAdmin
             </Typography>
             <IconButton onClick={this.handleDrawerClose}>
               {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
