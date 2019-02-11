@@ -94,7 +94,8 @@ class PersistentDrawerLeft extends React.Component {
     open: true,
     selectedIndex: 0,
     openList: false,
-    display:<Statistics/>
+    // display:<Statistics/>,
+    display:<div/>
   };
 
   handleDrawerOpen = () => {
@@ -198,16 +199,16 @@ class PersistentDrawerLeft extends React.Component {
           </div>
           <Divider />
           <List>
-          <ListItem
+          {/* <ListItem
             button
             selected={this.state.selectedIndex === 0}
             onClick={event => this.displayStatistics(event, 0)}
           >
-            {/* <ListItemIcon>
+            <ListItemIcon>
               <InboxIcon />
-            </ListItemIcon> */}
+            </ListItemIcon>
             <ListItemText primary="Statistics" />
-          </ListItem>
+          </ListItem> */}
           {/* <ListItem
             button
             selected={this.state.selectedIndex === 1}
