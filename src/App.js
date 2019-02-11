@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import Drawer from './views/Drawer/Drawer.jsx'
+import CustomRoutes from './views/routes/routes.jsx'
 
 class App extends Component {
   render() {
     return (
       <div>
-          <Drawer/>
+          <CustomRoutes/>
       </div>
     );
   }

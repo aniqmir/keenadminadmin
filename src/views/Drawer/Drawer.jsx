@@ -149,6 +149,7 @@ class PersistentDrawerLeft extends React.Component {
         selectedIndex: index 
      })
   }
+  
 
   render() {
     const { classes, theme } = this.props;
@@ -207,16 +208,16 @@ class PersistentDrawerLeft extends React.Component {
             </ListItemIcon> */}
             <ListItemText primary="Statistics" />
           </ListItem>
-          <ListItem
+          {/* <ListItem
             button
             selected={this.state.selectedIndex === 1}
             onClick={event => this.displayBilling(event, 1)}
           >
-            {/* <ListItemIcon>
+             <ListItemIcon>
               <InboxIcon />
-            </ListItemIcon> */}
+            </ListItemIcon> 
             <ListItemText primary="Billing" />
-          </ListItem>
+          </ListItem> */}
          
           <ListItem button onClick={this.handleClickUser}>
           <ListItemIcon>

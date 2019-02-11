@@ -41,11 +41,12 @@ function SimpleTable(props) {
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat (g)</TableCell>
-            <TableCell align="right">Carbs (g)</TableCell>
-            <TableCell align="right">Protein (g)</TableCell>
+            <TableCell>Username</TableCell>
+            <TableCell align="right">Email</TableCell>
+            <TableCell align="right">Phone No.</TableCell>
+            <TableCell align="right">Title</TableCell>
+            <TableCell align="right">Group Number</TableCell>
+            <TableCell align="right">Hospital or Clinic</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
