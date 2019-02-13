@@ -16,11 +16,11 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Collapse from '@material-ui/core/Collapse';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
+// import Collapse from '@material-ui/core/Collapse';
+// import InboxIcon from '@material-ui/icons/MoveToInbox';
 // import MailIcon from '@material-ui/icons/Mail';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
+// import ExpandLess from '@material-ui/icons/ExpandLess';
+// import ExpandMore from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
 
 import Grid from '@material-ui/core/Grid';
@@ -94,8 +94,7 @@ class PersistentDrawerLeft extends React.Component {
     open: true,
     selectedIndex: 0,
     openList: false,
-    // display:<Statistics/>,
-    display:<div/>
+    display:<AddUsers/>,
   };
 
   handleDrawerOpen = () => {
@@ -130,7 +129,10 @@ class PersistentDrawerLeft extends React.Component {
 
   displayAddUsers = (event,index) => {
     this.setState({
-        display:<AddUsers/>,
+      
+        display:<Grid item xs={12} md={12}>
+                <AddUsers/>,
+                </Grid>,
         selectedIndex: index 
      })
   }
@@ -138,7 +140,10 @@ class PersistentDrawerLeft extends React.Component {
   
   displayAllUsers = (event,index) => {
     this.setState({
-        display:<AllUsers/>,
+        display:
+        <Grid item xs={5} md={12}>
+        <AllUsers/>
+        </Grid>,
         selectedIndex: index 
      })
   }
@@ -220,14 +225,14 @@ class PersistentDrawerLeft extends React.Component {
             <ListItemText primary="Billing" />
           </ListItem> */}
          
-          <ListItem button onClick={this.handleClickUser}>
+          {/* <ListItem button onClick={this.handleClickUser}>
           <ListItemIcon>
             <InboxIcon />
           </ListItemIcon>
           <ListItemText inset primary="Users" />
           {this.state.openList ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
-        <Collapse in={this.state.openList} timeout="auto" unmountOnExit>
+        <Collapse in={this.state.openList} timeout="auto" unmountOnExit> */}
           <List component="div" disablePadding>
             <ListItem button className={classes.nested}
             selected={this.state.selectedIndex === 2}
@@ -246,16 +251,16 @@ class PersistentDrawerLeft extends React.Component {
               </ListItemIcon>
               <ListItemText inset primary="All Users" />
             </ListItem>
-            <ListItem button className={classes.nested}
+            {/* <ListItem button className={classes.nested}
             selected={this.state.selectedIndex === 4}
             onClick={event => this.displayRequestedUsers(event, 4)}>
               <ListItemIcon>
                 <StarBorder />
               </ListItemIcon>
               <ListItemText inset primary="Requested Users" />
-            </ListItem>
+            </ListItem> */}
           </List>
-        </Collapse>
+        {/* </Collapse> */}
           </List>
         </Drawer>
         <main
@@ -264,9 +269,7 @@ class PersistentDrawerLeft extends React.Component {
           })}
         >
           <div className={classes.drawerHeader} />
-         <Grid item xs={12}>
           {this.state.display}
-         </Grid>
         </main>
       </div>
     );

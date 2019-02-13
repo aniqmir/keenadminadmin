@@ -110,7 +110,7 @@ class PersistentDrawerLeft extends React.Component {
         >
            
            <Grid container spacing={0}>
-                <Grid item xs={6} md={9}>
+                <Grid item xs={12} md={9}>
                     <Typography variant="headline" component="h1">
                         <strong>New User</strong>
                     </Typography>
@@ -121,7 +121,7 @@ class PersistentDrawerLeft extends React.Component {
                  
                 </Grid>
 
-              <Grid item xs={12}><Divider/></Grid>
+              <Grid item xs={12} style={{paddingBottom:'3%'}}><Divider/></Grid>
                 <Grid item xs={12} md={2}>
                   <Grid container spacing={8} direction="column" justify="center" alignContent="center" alignItems="center">
                       <Grid item xs={12}>
@@ -294,7 +294,7 @@ class PersistentDrawerLeft extends React.Component {
                         </Grid>
                 </Grid>     
 
-                <Grid item xs={12} style={{textAlign:'center'}}>
+                <Grid item xs={12} style={{textAlign:'center',paddingTop:'2.5%'}}>
                   <TextField
                     id="outlined-hospital-input"
                     label="Hospital or Clinic"
@@ -303,8 +303,8 @@ class PersistentDrawerLeft extends React.Component {
                     fullWidth
                   />
                 </Grid>    
-                <Grid item xs={12} style={{textAlign:'center'}}>
-                <Button variant="contained">Add Button</Button>
+                <Grid item xs={12} style={{textAlign:'center',paddingTop:'2.5%'}}>
+                <Button variant="contained" color="primary" style={{width:'75%'}}>Add User</Button>
                 </Grid>    
            </Grid>
         </main>
