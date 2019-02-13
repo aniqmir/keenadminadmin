@@ -43,39 +43,6 @@ const rows = [
 ];
 
 class SimpleTable extends React.Component {
-  
-  constructor(props){
-    super(props);
-
-    AWS.config.update({
-
-      region: "us-west-2",
-    
-      // The endpoint should point to the local or remote computer where DynamoDB (downloadable) is running.
-    
-      // endpoint: 'http://localhost:8000',
-      accessKeyId: "AKIAJBMX5AOJSPLJNRRA",
-      secretAccessKey: "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"
-    
-    });
-    
-    
-    var params = {
-      TableName : 'Keen_Logon_Table',
-      Key: {
-        HashKey: ''
-      }
-    };
-    
-    // var dynamodb = new AWS.DynamoDB();
-    var documentClient = new AWS.DynamoDB.DocumentClient();
-    
-    documentClient.get(params, function(err, data) {
-      if (err) console.log(err);
-      else console.log(data);
-    });
-
-  }
   render(){
     const { classes } = this.props;
   return (
