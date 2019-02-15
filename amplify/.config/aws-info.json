@@ -1,5 +1,5 @@
 {
     "configLevel": "project",
-    "useProfile": false,
-    "awsConfigFilePath": "/home/faizan/.amplify/awscloudformation/R4VVWfqrAr"
+    "useProfile": true,
+    "profileName": "keenSuperAdmin"
 }

@@ -4,18 +4,15 @@ import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
-
-
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-
-
 import TextField from '@material-ui/core/TextField';
-
-
 import SettingsIcon from '@material-ui/icons/Settings';
-
 import Avatar from '@material-ui/core/Avatar';
+import awsSettings from '../../../aws-exports';
+import Amplify,{API} from 'aws-amplify';
+Amplify.configure(awsSettings);
+
 
 const drawerWidth = 300;
 
@@ -96,6 +93,30 @@ class PersistentDrawerLeft extends React.Component {
   handleDrawerClose = () => {
     this.setState({ open: false });
   };
+
+
+  post = async () => {
+    console.log('calling api');
+    const response = await API.post('keensuperadmin', '/users', {
+      body: {
+        username: '1',
+        displayname: 'hello amplify!',
+        email: 'hello amplify!',
+        fname:'Faizan',
+        lname:'Ejaz',
+        phoneno : '0987656789',
+        cbphoneno:'8654567890',
+        title:'doctor',
+        groupno:'group1',
+        password:'6789098',
+        pincode:'5678',
+        authcode:'8989',
+        hospitalclinic:'wow',
+      }
+    });
+    console.log(JSON.stringify(response, null, 2));
+  }
+
 
   render() {
     const { classes } = this.props;
@@ -304,7 +325,7 @@ class PersistentDrawerLeft extends React.Component {
                   />
                 </Grid>    
                 <Grid item xs={12} style={{textAlign:'center',paddingTop:'2.5%'}}>
-                <Button variant="contained" color="primary" style={{width:'75%'}}>Add User</Button>
+                <Button variant="contained" color="primary" style={{width:'75%'}} onClick={this.post}>Add User</Button>
                 </Grid>    
            </Grid>
         </main>

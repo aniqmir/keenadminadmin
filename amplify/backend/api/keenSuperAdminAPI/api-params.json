@@ -1,0 +1,34 @@
+{
+    "paths": [
+        {
+            "name": "/users",
+            "lambdaFunction": "keenSuperAdminEC2",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "keenSuperAdminAPI",
+    "apiName": "keenadminadmineaa7549e",
+    "functionArns": [
+        {
+            "lambdaFunction": "keenSuperAdminEC2"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "keenadminadmin-20190215185108-authRole",
+        "unAuthRoleName": "keenadminadmin-20190215185108-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "keenSuperAdminEC2",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
