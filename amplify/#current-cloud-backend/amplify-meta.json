@@ -1,14 +1,92 @@
 {
-    "providers": {
-        "awscloudformation": {
-            "AuthRoleName": "keenadminadmin-20190215123351-authRole",
-            "UnauthRoleArn": "arn:aws:iam::055274520869:role/keenadminadmin-20190215123351-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::055274520869:role/keenadminadmin-20190215123351-authRole",
-            "Region": "us-east-1",
-            "DeploymentBucketName": "keenadminadmin-20190215123351-deployment",
-            "UnauthRoleName": "keenadminadmin-20190215123351-unauthRole",
-            "StackName": "keenadminadmin-20190215123351",
-            "StackId": "arn:aws:cloudformation:us-east-1:055274520869:stack/keenadminadmin-20190215123351/12ed3600-30f4-11e9-9046-0a52d71b881a"
-        }
-    }
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "keenadminadmin-20190215123351-authRole",
+			"UnauthRoleArn": "arn:aws:iam::055274520869:role/keenadminadmin-20190215123351-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::055274520869:role/keenadminadmin-20190215123351-authRole",
+			"Region": "us-east-1",
+			"DeploymentBucketName": "keenadminadmin-20190215123351-deployment",
+			"UnauthRoleName": "keenadminadmin-20190215123351-unauthRole",
+			"StackName": "keenadminadmin-20190215123351",
+			"StackId": "arn:aws:cloudformation:us-east-1:055274520869:stack/keenadminadmin-20190215123351/12ed3600-30f4-11e9-9046-0a52d71b881a"
+		}
+	},
+	"storage": {
+		"superadmindb": {
+			"service": "DynamoDB",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/keenadminadmin-20190215123351-deployment/amplify-cfn-templates/storage/superadmindb-cloudformation-template.json",
+				"logicalId": "storagesuperadmindb"
+			},
+			"lastPushTimeStamp": "2019-02-15T07:48:29.946Z",
+			"output": {
+				"PartitionKeyName": "email",
+				"SortKeyName": "clientid",
+				"SortKeyType": "S",
+				"Region": "us-east-1",
+				"Arn": "arn:aws:dynamodb:us-east-1:055274520869:table/users",
+				"PartitionKeyType": "S",
+				"Name": "users"
+			},
+			"lastPushDirHash": "T7ttmsBB0ZG4ktvCyO/f9BvCGEI="
+		}
+	},
+	"function": {
+		"usercontroller": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true,
+			"dependsOn": [
+				{
+					"category": "storage",
+					"resourceName": "superadmindb",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			],
+			"lastBuildTimeStamp": "2019-02-15T07:45:57.142Z",
+			"lastPackageTimeStamp": "2019-02-15T07:46:00.963Z",
+			"distZipFilename": "usercontroller-1550216757-latest-build.zip",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/keenadminadmin-20190215123351-deployment/amplify-cfn-templates/function/usercontroller-cloudformation-template.json",
+				"logicalId": "functionusercontroller"
+			},
+			"lastPushTimeStamp": "2019-02-15T07:48:29.946Z",
+			"output": {
+				"Region": "us-east-1",
+				"Arn": "arn:aws:lambda:us-east-1:055274520869:function:usercontroller",
+				"Name": "usercontroller"
+			},
+			"lastPushDirHash": "5/Ei/vD/0MDm13wZZOlu5q8Zs0g="
+		}
+	},
+	"api": {
+		"keensuperadmin": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "usercontroller",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			],
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/keenadminadmin-20190215123351-deployment/amplify-cfn-templates/api/keensuperadmin-cloudformation-template.json",
+				"logicalId": "apikeensuperadmin"
+			},
+			"lastPushTimeStamp": "2019-02-15T07:48:29.946Z",
+			"output": {
+				"ApiName": "keensuperadmin",
+				"RootUrl": "https://wq4raxwqrf.execute-api.us-east-1.amazonaws.com/Prod"
+			},
+			"lastPushDirHash": "AvVpTHZsQKA/sp7+FNH5pdN6kSo="
+		}
+	}
 }
