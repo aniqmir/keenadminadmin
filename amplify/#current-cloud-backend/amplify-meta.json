@@ -1,0 +1,14 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "keenadminadmin-20190215123351-authRole",
+            "UnauthRoleArn": "arn:aws:iam::055274520869:role/keenadminadmin-20190215123351-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::055274520869:role/keenadminadmin-20190215123351-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "keenadminadmin-20190215123351-deployment",
+            "UnauthRoleName": "keenadminadmin-20190215123351-unauthRole",
+            "StackName": "keenadminadmin-20190215123351",
+            "StackId": "arn:aws:cloudformation:us-east-1:055274520869:stack/keenadminadmin-20190215123351/12ed3600-30f4-11e9-9046-0a52d71b881a"
+        }
+    }
+}
