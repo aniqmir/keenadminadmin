@@ -1,0 +1,7 @@
+{
+    "tableName": "users",
+    "partitionKeyName": "email",
+    "partitionKeyType": "S",
+    "sortKeyName": "clientid",
+    "sortKeyType": "S"
+}
