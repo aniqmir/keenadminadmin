@@ -142,7 +142,7 @@ class PersistentDrawerLeft extends React.Component {
     this.setState({
         display:
         <Grid item xs={5} md={12}>
-        <AllUsers/>
+        <AllUsers history={this.props.history}/>
         </Grid>,
         selectedIndex: index 
      })
