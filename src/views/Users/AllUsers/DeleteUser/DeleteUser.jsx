@@ -11,6 +11,8 @@ import Typography from '@material-ui/core/Typography';
 
 import Delete from "@material-ui/icons/Delete";
 
+import firebase from '../../../../firebase/firebase.js';
+
 const DialogTitle = withStyles(theme => ({
   root: {
     borderBottom: `1px solid ${theme.palette.divider}`,
@@ -67,6 +69,17 @@ class CustomizedDialogDemo extends React.Component {
     this.setState({ open: false });
   };
 
+  handleConfirm = () => {
+    console.log(this.props.data)
+    let temp =  Object.keys(this.props.data)
+   console.log(temp)
+   let key = temp[this.props.id]
+   console.log(key)
+   firebase.database().ref('user_admin/').child(key).remove()
+   this.handleClose()
+  };
+
+
   render() {
     return (
       <div>
@@ -87,7 +100,7 @@ class CustomizedDialogDemo extends React.Component {
             </Typography>
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
+            <Button onClick={this.handleConfirm} color="primary">
               Confirm
             </Button>
             <Button onClick={this.handleClose} color="primary">
