@@ -19,6 +19,8 @@ import Avatar from '@material-ui/core/Avatar';
 import firebase from '../../../../firebase/firebase.js';
 import {storage} from '../../../../firebase/firebase.js'
 
+import CancelDialog from './CancelDialog.jsx';
+
 const drawerWidth = 300;
 
 // const data = {
@@ -250,7 +252,10 @@ class PersistentDrawerLeft extends React.Component {
     url:'',
     image:null,
 
-    data:{}
+    data:{},
+
+    cancelOpen:false,
+    cancel:false
   }
 
   handleDrawerOpen = () => {
@@ -335,6 +340,16 @@ class PersistentDrawerLeft extends React.Component {
    });
   }
 
+  cancelHandleClickOpen = () => {
+    this.setState({
+      cancelOpen:true
+    })
+  }
+  cancelHandleClose = () => {
+    this.setState({
+      cancelOpen:false
+    })
+  }
   componentWillMount() {
     console.log(this.props.match.params.id)
     var ref = firebase.database().ref(`user_admin/`);  
@@ -607,11 +622,14 @@ class PersistentDrawerLeft extends React.Component {
                         />
                       </Grid>    
                       <Grid item xs={12} style={{textAlign:'center',paddingTop:'2.5%'}}>
-                      <Button variant="contained" color="primary" style={{width:'75%'}} onClick={()=>this.editUser()}>Edit User</Button>
+                      <Button variant="contained" color="primary" style={{width:'75%'}} onClick={()=>this.editUser()}>Save</Button>
                       </Grid> 
+                      {/* <Grid item xs={12} style={{textAlign:'center',paddingTop:'2.5%'}}>
+                      <Button variant="contained" color="primary" style={{width:'75%'}} onClick={()=>this.cancel()}>Cancel</Button>
+                      </Grid>    */}
                       <Grid item xs={12} style={{textAlign:'center',paddingTop:'2.5%'}}>
-                      <Button variant="contained" color="primary" style={{width:'75%'}} onClick={()=>this.props.history.push('/home')}>Go Back</Button>
-                      </Grid>   
+                      <CancelDialog open={this.state.cancelOpen} handleClose={()=>this.cancelHandleClose()} handleClickOpen={()=>this.cancelHandleClickOpen()} history={this.props.history}/>
+                      </Grid> 
                       </div>
                        )
                    }
