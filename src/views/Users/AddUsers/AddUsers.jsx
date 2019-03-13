@@ -293,6 +293,7 @@ class PersistentDrawerLeft extends React.Component {
                             name="FirstName"
                             margin="dense"
                             variant="outlined"
+                            autoComplete="name"
                             value={this.state.firstname}
                             onChange={this.handleChange('firstname')}
                             // fullWidth
@@ -306,6 +307,7 @@ class PersistentDrawerLeft extends React.Component {
                             name="Username"
                             margin="dense"
                             variant="outlined"
+                            autoComplete="name"
                             value={this.state.lastname}
                             onChange={this.handleChange('lastname')}
                             // fullWidth
@@ -319,6 +321,7 @@ class PersistentDrawerLeft extends React.Component {
                             name="Phone No."
                             margin="dense"
                             variant="outlined"
+                            autoComplete="tel"
                             value={this.state.phoneno}
                             onChange={this.handleChange('phoneno')}
                             // fullWidth
@@ -331,6 +334,7 @@ class PersistentDrawerLeft extends React.Component {
                             margin="dense"
                             variant="outlined"
                             value={this.state.callback}
+                            autoComplete="tel"
                             onChange={this.handleChange('callback')}
                             // fullWidth
                             />
@@ -347,6 +351,7 @@ class PersistentDrawerLeft extends React.Component {
                     label="Title"
                     name="Title"
                     placeholder="title,eg MD,DO etc"
+                    autoComplete="organization-title"
                     // defaultValue="title,eg MD,DO etc"
                     margin="dense"
                     variant="outlined"
