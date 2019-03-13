@@ -1,0 +1,5 @@
+{
+    "tableName": "keenSuperAdminDB",
+    "partitionKeyName": "email",
+    "partitionKeyType": "S"
+}
