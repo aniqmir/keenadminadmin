@@ -230,18 +230,18 @@ class PersistentDrawerLeft extends React.Component {
                 </Grid>
 
               <Grid item xs={12} style={{paddingBottom:'3%'}}><Divider/></Grid>
-                <Grid item xs={12} md={2}>
-                  <Grid container spacing={8} direction="column" justify="center" alignContent="center" alignItems="center">
+                <Grid item xs={12} md={3}>
+                  <Grid container spacing={0} direction="column" justify="center" alignContent="center" alignItems="center">
                       <Grid item xs={12}>
                       <Avatar alt="User" src={this.state.url} className={classes.bigAvatar} />
                       </Grid>
-                      <Grid item xs={12}>
-                      <input type="file" onChange={this.handleChangeImage}/>
+                      <Grid item xs={10}>
+                      <input type="file" onChange={this.handleChangeImage} alt="Browse"/>
                       </Grid>
                   </Grid>
                 </Grid>
 
-                <Grid item xs={12} md={5}>
+                <Grid item xs={12} md={4}>
                     <Grid container spacing={8}>
 
                         <Grid item xs={12} sm={12} md={12}>
