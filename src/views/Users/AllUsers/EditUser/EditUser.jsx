@@ -338,6 +338,7 @@ class PersistentDrawerLeft extends React.Component {
     hospital,
     url,
    });
+   this.props.history.push('/home')
   }
 
   cancelHandleClickOpen = () => {
@@ -396,15 +397,17 @@ class PersistentDrawerLeft extends React.Component {
         >
            
            <Grid container spacing={0}>
-                <Grid item xs={12} md={9}>
+                <Grid item xs={12} md={10}>
                     <Typography variant="headline" component="h1">
                         <strong>Edit User</strong>
                     </Typography>
                     
                 </Grid>
 
-                <Grid item xs={6} md={3}>
-                 
+                <Grid item xs={6} md={2} style={{paddingBottom:'1%'}}>
+                {/* <Grid item xs={12} style={{textAlign:'center',paddingTop:'2.5%'}}> */}
+                      <Button variant="contained" color="primary" onClick={()=>this.props.history.push('/home')}>Go Back</Button>
+                      {/* </Grid>  */}
                 </Grid>
 
               <Grid item xs={12} style={{paddingBottom:'3%'}}><Divider/></Grid>
@@ -630,6 +633,7 @@ class PersistentDrawerLeft extends React.Component {
                       <Grid item xs={12} style={{textAlign:'center',paddingTop:'2.5%'}}>
                       <CancelDialog open={this.state.cancelOpen} handleClose={()=>this.cancelHandleClose()} handleClickOpen={()=>this.cancelHandleClickOpen()} history={this.props.history}/>
                       </Grid> 
+                   
                       </div>
                        )
                    }
