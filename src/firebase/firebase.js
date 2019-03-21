@@ -13,10 +13,11 @@ var config = {
 const fire = firebase.initializeApp(config);
 
 
- const storage = firebase.storage();
+const storage = firebase.storage();
 
 
 export {
-  storage,fire as default
+  storage,
+  fire as
+  default
 }
-
