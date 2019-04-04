@@ -92,7 +92,6 @@ class CustomizedDialogDemo extends React.Component {
         this.handleClose()
         alert('Internal Server error');
       });
-    
   };
 
 

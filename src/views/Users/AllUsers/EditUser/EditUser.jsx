@@ -111,6 +111,7 @@ class PersistentDrawerLeft extends React.Component {
     hospital: "",
     url: "",
     id: "",
+    load: false,
     image: null,
     //data:{},
     cancelOpen:false,
@@ -230,7 +231,8 @@ class PersistentDrawerLeft extends React.Component {
             title: usera.title,
             username: usera.username,
             id: usera.userid,
-            url: usera.url
+            url: usera.url,
+            load: true
             })
         }
       })
@@ -271,8 +273,7 @@ class PersistentDrawerLeft extends React.Component {
   render() {
     const { classes } = this.props;
     const { open } = this.state;
-    console.log(this.state.data);
-    if(this.state.password)
+    if(this.state.load)
     return (
       <div className={classes.root}>
         <main
@@ -450,7 +451,6 @@ class PersistentDrawerLeft extends React.Component {
                           <TextField
                               id="outlined-password-input"
                               label="Password"
-                              type="password"
                               autoComplete="current-password"
                               margin="dense"
                               variant="outlined"
