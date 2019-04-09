@@ -5,6 +5,8 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
 import { withStyles } from '@material-ui/core/styles';
+import ForgotPass from './ForgotPass/ForgotPass.jsx';
+import ContactSupport from './ContactSupport/ContactSupport.jsx';
 
 
 import Card from '@material-ui/core/Card';
@@ -25,9 +27,27 @@ class Login extends React.Component{
         this.state={
             email:'',
             password:'',
-            error:false
+            error:false,
+            openForgotPass:false,
+            openContactSupport:false
         }
     }
+
+    handleClickOpenForgotPass = () => {
+        this.setState({ openForgotPass: true });
+      };
+    
+      handleCloseForgotPass = () => {
+        this.setState({ openForgotPass: false });
+      };
+
+      handleClickOpenContactSupport = () => {
+        this.setState({ openContactSupport: true });
+      };
+    
+      handleCloseContactSupport = () => {
+        this.setState({ openContactSupport: false });
+      };
 
     handleEmail = e => {
         this.setState({
@@ -110,16 +130,18 @@ class Login extends React.Component{
                 </Grid>
                 <Grid item xs={12}>
                     <div style={{paddingTop:'15%',marginLeft:'15%'}}>
-                        <Button  onClick={()=>console.log('Forgot Password')}>
+                        {/* <Button  onClick={()=>console.log('Forgot Password')}>
                             Forgot Password?
-                        </Button>
+                        </Button> */}
+                        <ForgotPass open={this.state.openForgotPass} handleOpen={this.handleClickOpenForgotPass} handleClose={this.handleCloseForgotPass}/>
                     </div>
                 </Grid>
                 <Grid item xs={12}>
                     <div>
-                        <Button onClick={()=>console.log('Contact Support')}>
+                        {/* <Button onClick={()=>console.log('Contact Support')}>
                             Need Help? Contact Support
-                        </Button>
+                        </Button> */}
+                                                <ContactSupport open={this.state.openContactSupport} handleOpen={this.handleClickOpenContactSupport} handleClose={this.handleCloseContactSupport} />
                     </div>
                 </Grid>
                 {/* <Grid item xs={12}>
