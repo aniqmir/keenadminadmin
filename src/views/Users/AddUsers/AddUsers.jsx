@@ -12,6 +12,7 @@ import Avatar from "@material-ui/core/Avatar";
 import axios from 'axios';
 //import firebase from "../../../firebase/firebase.js";
 import { storage } from "../../../firebase/firebase.js";
+import Alert from './Alert/Alert.jsx';
 
 const drawerWidth = 300;
 
@@ -100,7 +101,9 @@ class PersistentDrawerLeft extends React.Component {
     authcode: "",
     hospital: "",
     url: "",
-    image: null
+    image: null,
+    openAlert:false,
+    alertContent:'',
   };
 
   handleDrawerOpen = () => {
@@ -115,6 +118,14 @@ class PersistentDrawerLeft extends React.Component {
     this.setState({
       [name]: event.target.value
     });
+  };
+
+  handleClickOpen = () => {
+    this.setState({ openAlert: true });
+  };
+
+  handleClose = () => {
+    this.setState({ openAlert: false });
   };
 
   handleUpload = e => {
@@ -153,51 +164,60 @@ class PersistentDrawerLeft extends React.Component {
     }
   };
   onSubmit = () => {
-    if (this.state.password === this.state.confirmpass) {
-      const data = JSON.stringify(this.state);
-    axios.post('https://w0d7i76g66.execute-api.us-east-2.amazonaws.com/prod/users', data,{
-      headers: {
-        'Content-Type': 'application/json',
-     }
-    }).then(res => {
-      JSON.stringify(res);
-      console.log('hereeee',res.data.success);
-      //Check if response reture suceess: true or false
-      if (res.data.success === false) {
-        alert(res.data.message);
-      } 
+    if(this.state.image===null){
+      this.setState({
+        alertContent:"No Image/Select some image and let it Upload",
+        openAlert:true
+      })
+    }
+    else{
+      if (this.state.password === this.state.confirmpass) {
+        const data = JSON.stringify(this.state);
+      axios.post('https://w0d7i76g66.execute-api.us-east-2.amazonaws.com/prod/users', data,{
+        headers: {
+          'Content-Type': 'application/json',
+       }
+      }).then(res => {
+        JSON.stringify(res);
+        console.log('hereeee',res.data.success);
+        //Check if response reture suceess: true or false
+        if (res.data.success === false) {
+          alert(res.data.message);
+        } 
+        else {
+          this.setState({
+            authcode: '',
+            callback: '',
+            password: '',
+            confirmpass:'',
+            displayname: '',
+            email: '',
+            firstname: '',
+            groupno: '',
+            hospital: '',
+            lastname: '',
+            phoneno: '',
+            pincode: '',
+            title: '',
+            username: '',
+            image: null,
+            url: ''
+            });
+        }
+      })
+      .catch(error => {
+        alert('Internal Server error');
+      });        
+     } 
       else {
         this.setState({
-          authcode: '',
-          callback: '',
-          password: '',
-          confirmpass:'',
-          displayname: '',
-          email: '',
-          firstname: '',
-          groupno: '',
-          hospital: '',
-          lastname: '',
-          phoneno: '',
-          pincode: '',
-          title: '',
-          username: '',
-          image: null,
-          url: ''
-          });
+          error: true,
+          password: "",
+          confirmpass: ""
+        });
       }
-    })
-    .catch(error => {
-      alert('Internal Server error');
-    });        
-   } 
-    else {
-      this.setState({
-        error: true,
-        password: "",
-        confirmpass: ""
-      });
     }
+    
   };
 
   render() {
@@ -262,6 +282,10 @@ class PersistentDrawerLeft extends React.Component {
                     variant="outlined"
                     value={this.state.username}
                     onChange={this.handleChange("username")}
+                    error={this.state.username === ''}
+                    helperText={
+                    this.state.username === '' ? 'Enter Username' : ''
+                    }
                     // fullWidth
                   />
                 </Grid>
@@ -275,6 +299,10 @@ class PersistentDrawerLeft extends React.Component {
                     variant="outlined"
                     value={this.state.displayname}
                     onChange={this.handleChange("displayname")}
+                    error={this.state.displayname === ''}
+                    helperText={
+                    this.state.displayname === '' ? 'Enter Display Name' : ''
+                    }
                     // fullWidth
                   />
                 </Grid>
@@ -290,6 +318,10 @@ class PersistentDrawerLeft extends React.Component {
                     variant="outlined"
                     value={this.state.email}
                     onChange={this.handleChange("email")}
+                    error={this.state.email === ''}
+                    helperText={
+                    this.state.email === '' ? 'Enter Email' : ''
+                    }
                     // fullWidth
                   />
                 </Grid>
@@ -304,6 +336,10 @@ class PersistentDrawerLeft extends React.Component {
                     autoComplete="name"
                     value={this.state.firstname}
                     onChange={this.handleChange("firstname")}
+                    error={this.state.firstname === ''}
+                    helperText={
+                    this.state.firstname === '' ? 'Enter Firstn Name' : ''
+                    }
                     // fullWidth
                   />
                 </Grid>
@@ -318,6 +354,10 @@ class PersistentDrawerLeft extends React.Component {
                     autoComplete="name"
                     value={this.state.lastname}
                     onChange={this.handleChange("lastname")}
+                    error={this.state.lastname === ''}
+                    helperText={
+                    this.state.lastname === '' ? 'Enter Last Name' : ''
+                    }
                     // fullWidth
                   />
                 </Grid>
@@ -332,6 +372,10 @@ class PersistentDrawerLeft extends React.Component {
                     autoComplete="tel"
                     value={this.state.phoneno}
                     onChange={this.handleChange("phoneno")}
+                    error={this.state.phoneno === ''}
+                    helperText={
+                    this.state.phoneno === '' ? 'Enter Phone No' : ''
+                    }
                     // fullWidth
                   />
                 </Grid>
@@ -344,6 +388,10 @@ class PersistentDrawerLeft extends React.Component {
                     value={this.state.callback}
                     autoComplete="tel"
                     onChange={this.handleChange("callback")}
+                    error={this.state.callback === ''}
+                    helperText={
+                    this.state.callback === '' ? 'Enter CallBack' : ''
+                    }
                     // fullWidth
                   />
                 </Grid>
@@ -364,6 +412,10 @@ class PersistentDrawerLeft extends React.Component {
                     variant="outlined"
                     value={this.state.title}
                     onChange={this.handleChange("title")}
+                    error={this.state.title === ''}
+                    helperText={
+                    this.state.title === '' ? 'Enter Title' : ''
+                    }
                     // fullWidth
                   />
                 </Grid>
@@ -375,6 +427,10 @@ class PersistentDrawerLeft extends React.Component {
                     variant="outlined"
                     value={this.state.groupno}
                     onChange={this.handleChange("groupno")}
+                    error={this.state.groupno === ''}
+                    helperText={
+                    this.state.groupno === '' ? 'Enter Group No' : ''
+                    }
                     // fullWidth
                   />
                 </Grid>
@@ -429,6 +485,10 @@ class PersistentDrawerLeft extends React.Component {
                   variant="outlined"
                   onChange={this.handleChange("pincode")}
                   value={this.state.pincode}
+                  error={this.state.pincode === ''}
+                  helperText={
+                  this.state.pincode === '' ? 'Enter Pin Code' : ''
+                  }
                   // fullWidth
                 />
               </Grid>
@@ -440,6 +500,10 @@ class PersistentDrawerLeft extends React.Component {
                   variant="outlined"
                   onChange={this.handleChange("authcode")}
                   value={this.state.authcode}
+                  error={this.state.authcode === ''}
+                  helperText={
+                  this.state.authcode === '' ? 'Enter Auth Code' : ''
+                  }
                   // fullWidth
                 />
               </Grid>
@@ -458,6 +522,10 @@ class PersistentDrawerLeft extends React.Component {
                 fullWidth
                 value={this.state.hospital}
                 onChange={this.handleChange("hospital")}
+                error={this.state.hospital === ''}
+                helperText={
+                this.state.hospital === '' ? 'Enter Hospital Name' : ''
+                }
               />
             </Grid>
             <Grid
@@ -470,10 +538,21 @@ class PersistentDrawerLeft extends React.Component {
                 color="primary"
                 style={{ width: "75%" }}
                 onClick={() => this.onSubmit()}
+                disabled={this.state.username==='' || 
+                this.state.displayname === '' || 
+                this.state.email==='' || 
+                this.state.firstname===''||
+                this.state.lastname===''||
+                this.state.phoneno==='' ||
+                this.state.pstatus===''||
+                this.state.password===''||
+                this.state.confirmpass===''
+              }
               >
                 Add User
               </Button>
             </Grid>
+            <Alert open={this.state.openAlert} handleClose={this.handleClose} content={this.state.alertContent}/>
           </Grid>
         </main>
       </div>
