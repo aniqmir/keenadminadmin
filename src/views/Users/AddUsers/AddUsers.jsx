@@ -9,8 +9,8 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import SettingsIcon from "@material-ui/icons/Settings";
 import Avatar from "@material-ui/core/Avatar";
-
-import firebase from "../../../firebase/firebase.js";
+import axios from 'axios';
+//import firebase from "../../../firebase/firebase.js";
 import { storage } from "../../../firebase/firebase.js";
 
 const drawerWidth = 300;
@@ -142,6 +142,7 @@ class PersistentDrawerLeft extends React.Component {
   };
   handleChangeImage = e => {
     if (e.target.files[0]) {
+      this.setState({image: e.target.files[0]})
       const image = e.target.files[0];
       this.setState(
         () => ({ image }),
@@ -153,49 +154,44 @@ class PersistentDrawerLeft extends React.Component {
   };
   onSubmit = () => {
     if (this.state.password === this.state.confirmpass) {
-      firebase
-        .database()
-        .ref(`user_admin/`)
-        .push()
-        .set({
-          username: this.state.username,
-          displayname: this.state.displayname,
-          email: this.state.email,
-          firstname: this.state.firstname,
-          lastname: this.state.lastname,
-          phoneno: this.state.phoneno,
-          callback: this.state.callback,
-          title: this.state.title,
-          groupno: this.state.groupno,
-          password: this.state.password,
-          confirmpass: this.state.confirmpass,
-          pincode: this.state.pincode,
-          authcode: this.state.authcode,
-          hospital: this.state.hospital,
-          url: this.state.url
-        })
-        .then(
-          this.setState({
-            error: false,
-            username: "",
-            displayname: "",
-            email: "",
-            firstname: "",
-            lastname: "",
-            phoneno: "",
-            callback: "",
-            title: "",
-            groupno: "",
-            password: "",
-            confirmpass: "",
-            pincode: "",
-            authcode: "",
-            hospital: "",
-            image: null,
-            url: ""
-          })
-        );
-    } else {
+      const data = JSON.stringify(this.state);
+    axios.post('https://w0d7i76g66.execute-api.us-east-2.amazonaws.com/prod/users', data,{
+      headers: {
+        'Content-Type': 'application/json',
+     }
+    }).then(res => {
+      JSON.stringify(res);
+      console.log('hereeee',res.data.success);
+      //Check if response reture suceess: true or false
+      if (res.data.success === false) {
+        alert(res.data.message);
+      } 
+      else {
+        this.setState({
+          authcode: '',
+          callback: '',
+          password: '',
+          confirmpass:'',
+          displayname: '',
+          email: '',
+          firstname: '',
+          groupno: '',
+          hospital: '',
+          lastname: '',
+          phoneno: '',
+          pincode: '',
+          title: '',
+          username: '',
+          image: null,
+          url: ''
+          });
+      }
+    })
+    .catch(error => {
+      alert('Internal Server error');
+    });        
+   } 
+    else {
       this.setState({
         error: true,
         password: "",
@@ -246,6 +242,8 @@ class PersistentDrawerLeft extends React.Component {
                 <Grid item xs={10}>
                   <input
                     type="file"
+                    multiple={false}
+                    key= {this.state.image}                    
                     onChange={this.handleChangeImage}
                     alt="Browse"
                   />
