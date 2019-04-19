@@ -164,13 +164,13 @@ class PersistentDrawerLeft extends React.Component {
     }
   };
   onSubmit = () => {
-    if(this.state.image===null){
-      this.setState({
-        alertContent:"No Image/Select some image and let it Upload",
-        openAlert:true
-      })
-    }
-    else{
+    // if(this.state.image===null){
+    //   this.setState({
+    //     alertContent:"No Image/Select some image and let it Upload",
+    //     openAlert:true
+    //   })
+    // }
+    // else{
       if (this.state.password === this.state.confirmpass) {
         const data = JSON.stringify(this.state);
       axios.post('https://w0d7i76g66.execute-api.us-east-2.amazonaws.com/prod/users', data,{
@@ -199,7 +199,7 @@ class PersistentDrawerLeft extends React.Component {
             phoneno: 'null',
             pincode: 'null',
             title: 'null',
-            username: '',
+            username: 'null',
             image: null,
             url: 'no image'
             });
@@ -216,7 +216,7 @@ class PersistentDrawerLeft extends React.Component {
           confirmpass: ""
         });
       }
-    }
+    // }
     
   };
 
