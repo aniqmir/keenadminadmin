@@ -86,21 +86,21 @@ class PersistentDrawerLeft extends React.Component {
     open: true,
     error: false,
     formValid: false,
-    username: "",
-    displayname: "",
-    email: "",
-    firstname: "",
-    lastname: "",
-    phoneno: "",
-    callback: "",
-    title: "",
-    groupno: "",
+    username: "null",
+    displayname: "null",
+    email: "null",
+    firstname: "null",
+    lastname: "null",
+    phoneno: "null",
+    callback: "null",
+    title: "null",
+    groupno: "null",
     password: "",
     confirmpass: "",
-    pincode: "",
-    authcode: "",
-    hospital: "",
-    url: "",
+    pincode: "null",
+    authcode: "null",
+    hospital: "null",
+    url: "no image",
     image: null,
     openAlert:false,
     alertContent:'',
@@ -186,22 +186,22 @@ class PersistentDrawerLeft extends React.Component {
         } 
         else {
           this.setState({
-            authcode: '',
-            callback: '',
+            authcode: 'null',
+            callback: 'null',
             password: '',
             confirmpass:'',
-            displayname: '',
-            email: '',
-            firstname: '',
-            groupno: '',
-            hospital: '',
-            lastname: '',
-            phoneno: '',
-            pincode: '',
-            title: '',
+            displayname: 'null',
+            email: 'null',
+            firstname: 'null',
+            groupno: 'null',
+            hospital: 'null',
+            lastname: 'null',
+            phoneno: 'null',
+            pincode: 'null',
+            title: 'null',
             username: '',
             image: null,
-            url: ''
+            url: 'no image'
             });
         }
       })
@@ -262,8 +262,8 @@ class PersistentDrawerLeft extends React.Component {
                 <Grid item xs={10}>
                   <input
                     type="file"
-                    multiple={false}
-                    key= {this.state.image}                    
+                    // multiple={false}
+                    // key= {this.state.image}                    
                     onChange={this.handleChangeImage}
                     alt="Browse"
                   />
