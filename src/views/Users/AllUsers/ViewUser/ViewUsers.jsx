@@ -52,7 +52,6 @@ class ViewUsers extends React.Component{
         } 
         else {
           const usera = JSON.parse(res.data.user);
-          console.log(usera.displayname);
           self.setState({
                    data:usera,
                  })
@@ -66,7 +65,7 @@ class ViewUsers extends React.Component{
     render() {
         const { classes } = this.props;
         const emp = this.state.data;
-       if(this.state.data.displayname)
+      
         return (
               <Grid container spacing={24}>
               {
@@ -80,33 +79,33 @@ class ViewUsers extends React.Component{
                           <Card className={classes.card}>
                           <CardMedia
                             className={classes.media}
-                            image={emp.url}
+                            image={emp.url === undefined ? 'NaN' : emp.url}
                             title="image"
                           />
                           <CardContent>
                             <Typography gutterBottom variant="h5" component="h2">
-                              <strong>Name:{emp.displayname.toUpperCase()}</strong>
+                              <strong>Name:{emp.displayname === undefined ? 'NaN' : emp.displayname.toUpperCase()}</strong>
                             </Typography>
                             <Typography gutterBottom component="p">
-                              <strong>First Name:</strong>{emp.firstname}
+                              <strong>First Name:</strong>{emp.firstname === undefined ? 'NaN' : emp.firstname}
                             </Typography>
                             <Typography gutterBottom component="p">
-                              <strong>Last Name:</strong>{emp.lastname}
+                              <strong>Last Name:</strong>{emp.lastname === undefined ? 'NaN' : emp.lastname}
                             </Typography>
                             <Typography gutterBottom component="p">
-                              <strong>Display Name:</strong>{emp.displayname}
+                              <strong>Display Name:</strong>{emp.displayname === undefined ? 'NaN' : emp.displayname}
                             </Typography>
                             <Typography component="p">
-                              <strong>Email:</strong>{emp.email}
+                              <strong>Email:</strong>{emp.email === undefined ? 'NaN' : emp.email}
                             </Typography>
                             <Typography component="p">
-                              <strong>Phone Number:</strong>{emp.phoneno}
+                              <strong>Phone Number:</strong>{emp.phoneno === undefined ? 'NaN' : emp.phoneno}
                             </Typography>
                             <Typography component="p" >
-                              <strong>Title:</strong>{emp.title}
+                              <strong>Title:</strong>{emp.title === undefined ? 'NaN' : emp.title}
                             </Typography>
                             <Typography component="p">
-                              <strong>Hospital:</strong>{emp.hospital}
+                              <strong>Hospital:</strong>{emp.hospital === undefined ? 'NaN' : emp.title}
                             </Typography>
                           </CardContent>
                           <CardActions>
@@ -126,7 +125,7 @@ class ViewUsers extends React.Component{
               }
               </Grid>
         )
-        else return null;
+        
     }
 }
 

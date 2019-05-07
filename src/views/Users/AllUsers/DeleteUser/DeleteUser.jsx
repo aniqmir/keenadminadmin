@@ -78,6 +78,7 @@ class CustomizedDialogDemo extends React.Component {
         JSON.stringify(res);
         //Check if response reture suceess: true or false
         console.log(res.data.success)
+        window.location.reload()
         if (res.data.success === false) {
           this.handleClose()      
           alert(res.data.message);

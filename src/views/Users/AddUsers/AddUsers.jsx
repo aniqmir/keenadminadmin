@@ -86,21 +86,21 @@ class PersistentDrawerLeft extends React.Component {
     open: true,
     error: false,
     formValid: false,
-    username: "null",
-    displayname: "null",
-    email: "null",
-    firstname: "null",
-    lastname: "null",
-    phoneno: "nul",
-    callback: "nul",
-    title: "null",
-    groupno: "null",
+    username: undefined,
+    displayname: undefined,
+    email: undefined,
+    firstname: undefined,
+    lastname: undefined,
+    phoneno: undefined,
+    callback: undefined,
+    title: undefined,
+    groupno: undefined,
     password: "",
     confirmpass: "",
-    pincode: "null",
-    authcode: "null",
-    hospital: "null",
-    url: "no image",
+    pincode: undefined,
+    authcode: undefined,
+    hospital: undefined,
+    url: undefined,
     image: null,
     openAlert:false,
     alertContent:'',
@@ -181,27 +181,28 @@ class PersistentDrawerLeft extends React.Component {
         JSON.stringify(res);
         console.log('hereeee',res.data.success);
         //Check if response reture suceess: true or false
+        window.location.reload();
         if (res.data.success === false) {
           alert(res.data.message);
         } 
         else {
           this.setState({
-            authcode: 'null',
-            callback: 'null',
+            authcode: undefined,
+            callback: undefined,
             password: '',
             confirmpass:'',
-            displayname: 'null',
-            email: 'null',
-            firstname: 'null',
-            groupno: 'null',
-            hospital: 'null',
-            lastname: 'null',
-            phoneno: 'null',
-            pincode: 'null',
-            title: 'null',
-            username: 'null',
+            username:undefined,
+            displayname: undefined,
+            email: undefined,
+            firstname: undefined,
+            groupno: undefined,
+            hospital: undefined,
+            lastname: undefined,
+            phoneno: undefined,
+            pincode: undefined,
+            title: undefined,
             image: null,
-            url: 'no image'
+            url: undefined
             });
         }
       })
@@ -538,16 +539,16 @@ class PersistentDrawerLeft extends React.Component {
                 color="primary"
                 style={{ width: "75%" }}
                 onClick={() => this.onSubmit()}
-                disabled={this.state.username==='' || 
-                this.state.displayname === '' || 
-                this.state.email==='' || 
-                this.state.firstname===''||
-                this.state.lastname===''||
-                this.state.phoneno==='' ||
-                this.state.pstatus===''||
-                this.state.password===''||
-                this.state.confirmpass===''
-              }
+              //   disabled={this.state.username==='' || 
+              //   this.state.displayname === '' || 
+              //   this.state.email==='' || 
+              //   this.state.firstname===''||
+              //   this.state.lastname===''||
+              //   this.state.phoneno==='' ||
+              //   this.state.pstatus===''||
+              //   this.state.password===''||
+              //   this.state.confirmpass===''
+              // }
               >
                 Add User
               </Button>

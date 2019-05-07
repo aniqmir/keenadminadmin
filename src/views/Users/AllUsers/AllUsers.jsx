@@ -84,16 +84,19 @@ class SimpleTable extends React.Component {
             <div className={classes.details}>
               <CardContent className={classes.content}>
                 <Typography component="h5" variant="h5">
-                {emp.displayname}
+                {emp.displayname === undefined ? 'NaN' : emp.displayname}
+                </Typography>
+                <Typography component="h5" variant="h5">
+                {emp.username === undefined ? 'NaN' : emp.username}
                 </Typography>
                 <Typography variant="subtitle1" color="textSecondary">
-                  {emp.email}, {emp.phoneno}
+                  {emp.email === undefined ? 'NaN' : emp.email}, {emp.phoneno === undefined ? 'NaN' : emp.phoneno}
                 </Typography>
                 <Typography variant="subtitle1" color="textSecondary">
-                  {emp.title}, {emp.hospital}
+                  {emp.title === undefined ? 'NaN' : emp.title}, {emp.hospital === undefined ? 'NaN' : emp.hospital}
                 </Typography>
                 <Typography variant="subtitle1" color="textSecondary">
-                  {emp.groupno}
+                  {emp.groupno === undefined ? 'NaN' : emp.groupno}
                 </Typography>
               </CardContent>
               </div>
@@ -108,7 +111,7 @@ class SimpleTable extends React.Component {
               </div>
               <CardMedia
               className={classes.cover}
-              image={emp.url}
+              image={emp.url === undefined ? 'NaN' : emp.url}
               title="Live from space album cover"
             />
           </Card>
