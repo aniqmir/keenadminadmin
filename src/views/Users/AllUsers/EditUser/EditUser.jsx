@@ -292,7 +292,7 @@ class PersistentDrawerLeft extends React.Component {
 
                 <Grid item xs={6} md={2} style={{paddingBottom:'1%'}}>
                 {/* <Grid item xs={12} style={{textAlign:'center',paddingTop:'2.5%'}}> */}
-                      <Button variant="contained" color="primary" onClick={()=>this.props.history.push('/home')}>Go Back</Button>
+                      <Button variant="contained" style={{backgroundColor:"#4db6ac",color:"white"}} onClick={()=>this.props.history.push('/home')}>Go Back</Button>
                       {/* </Grid>  */}
                 </Grid>
 
@@ -510,7 +510,7 @@ class PersistentDrawerLeft extends React.Component {
                         />
                       </Grid>    
                       <Grid item xs={12} style={{textAlign:'center',paddingTop:'2.5%'}}>
-                      <Button variant="contained" color="primary" style={{width:'75%'}} onClick={()=>this.editUser()}>Save</Button>
+                      <Button variant="contained" style={{width:'75%',backgroundColor:"#4db6ac",color:"white"}} onClick={()=>this.editUser()}>Save</Button>
                       </Grid> 
                       {/* <Grid item xs={12} style={{textAlign:'center',paddingTop:'2.5%'}}>
                       <Button variant="contained" color="primary" style={{width:'75%'}} onClick={()=>this.cancel()}>Cancel</Button>

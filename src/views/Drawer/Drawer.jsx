@@ -36,6 +36,7 @@ const drawerWidth = 240;
 const styles = theme => ({
   root: {
     display: 'flex',
+    
   },
   grow:{
     flexGrow:1
@@ -45,6 +46,7 @@ const styles = theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    backgroundColor:"#4db6ac"
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,

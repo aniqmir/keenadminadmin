@@ -123,7 +123,7 @@ class Login extends React.Component{
                 </Grid>
                 <Grid item xs={12}>
                     <div style={{paddingTop:'5%',paddingLeft:'30%'}}>
-                        <Button variant="contained" size="large"  color="primary" onClick={()=>this.signInHandle()}>
+                        <Button variant="contained" size="large"  style={{backgroundColor:"#4db6ac"}} onClick={()=>this.signInHandle()}>
                             Sign In
                         </Button>
                     </div>
@@ -141,7 +141,7 @@ class Login extends React.Component{
                         {/* <Button onClick={()=>console.log('Contact Support')}>
                             Need Help? Contact Support
                         </Button> */}
-                                                <ContactSupport open={this.state.openContactSupport} handleOpen={this.handleClickOpenContactSupport} handleClose={this.handleCloseContactSupport} />
+                <ContactSupport open={this.state.openContactSupport} handleOpen={this.handleClickOpenContactSupport} handleClose={this.handleCloseContactSupport} />
                     </div>
                 </Grid>
                 {/* <Grid item xs={12}>

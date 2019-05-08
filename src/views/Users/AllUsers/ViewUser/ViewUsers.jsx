@@ -109,7 +109,7 @@ class ViewUsers extends React.Component{
                             </Typography>
                           </CardContent>
                           <CardActions>
-                          <Button size="medium" color="primary" variant="contained" onClick={()=>this.props.history.push('/home')}>
+                          <Button size="medium" style={{backgroundColor:"#4db6ac",color:"white"}} variant="contained" onClick={()=>this.props.history.push('/home')}>
                           Go Back
                           </Button>
                            </CardActions>

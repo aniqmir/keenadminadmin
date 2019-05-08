@@ -27,7 +27,7 @@ class ResponsiveDialog extends React.Component {
 
     return (
       <div>
-        <Button variant="contained" color="primary" style={{width:'75%'}} onClick={this.handleClickOpen}>
+        <Button variant="contained" color="primary" style={{width:'75%',backgroundColor:"#4db6ac",color:"white"}} onClick={this.handleClickOpen}>
             Cancel
         </Button>
         <Dialog
@@ -43,10 +43,10 @@ class ResponsiveDialog extends React.Component {
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.handleDisagreeClose} color="primary">
+            <Button onClick={this.handleDisagreeClose} style={{backgroundColor:"#4db6ac",color:"white"}}>
               Disagree
             </Button>
-            <Button onClick={this.handleAgreeClose} color="primary" autoFocus>
+            <Button onClick={this.handleAgreeClose} style={{backgroundColor:"#4db6ac",color:"white"}} autoFocus>
               Agree
             </Button>
           </DialogActions>
