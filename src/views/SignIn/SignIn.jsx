@@ -123,7 +123,7 @@ class Login extends React.Component{
                 </Grid>
                 <Grid item xs={12}>
                     <div style={{paddingTop:'5%',paddingLeft:'30%'}}>
-                        <Button variant="contained" size="large"  style={{backgroundColor:"#4db6ac"}} onClick={()=>this.signInHandle()}>
+                        <Button variant="contained" size="large"  style={{backgroundColor:"#4db6ac",color:"white"}} onClick={()=>this.signInHandle()}>
                             Sign In
                         </Button>
                     </div>

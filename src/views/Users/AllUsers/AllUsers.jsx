@@ -84,19 +84,19 @@ class SimpleTable extends React.Component {
             <div className={classes.details}>
               <CardContent className={classes.content}>
                 <Typography component="h5" variant="h5">
-                {emp.displayname === undefined ? 'NaN' : emp.displayname}
+                {emp.displayname === undefined ? 'nill' : emp.displayname}
                 </Typography>
                 <Typography component="h5" variant="h5">
-                {emp.username === undefined ? 'NaN' : emp.username}
+                {emp.username === undefined ? 'nill' : emp.username}
                 </Typography>
                 <Typography variant="subtitle1" color="textSecondary">
-                  {emp.email === undefined ? 'NaN' : emp.email}, {emp.phoneno === undefined ? 'NaN' : emp.phoneno}
+                  {emp.email === undefined ? 'nill' : emp.email}, {emp.phoneno === undefined ? 'nill' : emp.phoneno}
                 </Typography>
                 <Typography variant="subtitle1" color="textSecondary">
-                  {emp.title === undefined ? 'NaN' : emp.title}, {emp.hospital === undefined ? 'NaN' : emp.hospital}
+                  {emp.title === undefined ? 'nill' : emp.title}, {emp.hospital === undefined ? 'nill' : emp.hospital}
                 </Typography>
                 <Typography variant="subtitle1" color="textSecondary">
-                  {emp.groupno === undefined ? 'NaN' : emp.groupno}
+                  {emp.groupno === undefined ? 'nill' : emp.groupno}
                 </Typography>
               </CardContent>
               </div>
@@ -111,7 +111,7 @@ class SimpleTable extends React.Component {
               </div>
               <CardMedia
               className={classes.cover}
-              image={emp.url === undefined ? 'NaN' : emp.url}
+              image={emp.url === undefined ? 'nill' : emp.url}
               title="Live from space album cover"
             />
           </Card>
