@@ -22,7 +22,32 @@ import CancelDialog from './CancelDialog.jsx';
 
 const drawerWidth = 300;
 
-
+const hospitalnames = [
+  {
+    value: 'Department of Corrections',
+    label: 'Department of Corrections',
+  },
+  {
+    value: 'Family Care Partners',
+    label: 'Family Care Partners',
+  },
+  {
+    value: 'MCCI',
+    label: 'MCCI',
+  },
+  {
+    value: 'Memorial Hospital',
+    label: 'Memorial Hospital',
+  },
+  {
+    value: 'Other',
+    label: 'Other',
+  },
+  {
+    value: 'VPA',
+    label: 'VPA',
+  },
+];
 const styles = theme => ({
   root: {
     display: 'flex',
@@ -499,15 +524,30 @@ class PersistentDrawerLeft extends React.Component {
                       </Grid>     
       
                       <Grid item xs={12} style={{textAlign:'center',paddingTop:'2.5%'}}>
-                        <TextField
-                          id="outlined-hospital-input"
-                          label="Hospital or Clinic"
-                          margin="dense"
-                          variant="outlined"
-                          fullWidth
-                          value={this.state.hospital}
-                          onChange={this.handleChange('hospital')}
-                        />
+                      <TextField
+                        id="standard-select-hospital-native"
+                        select
+                        label="Hospital Select"
+                        className={classes.textField}
+                        value={this.state.hospital}
+                        onChange={this.handleChange('hospital')}
+                        fullWidth
+                        variant="outlined"
+                        SelectProps={{
+                          native: true,
+                          MenuProps: {
+                            className: classes.menu,
+                          },
+                        }}
+                        helperText="Please Select Your hospital"
+                        margin="normal"
+                      >
+                        {hospitalnames.map(option => (
+                          <option key={option.value} value={option.value}>
+                            {option.label}
+                          </option>
+                        ))}
+                    </TextField>
                       </Grid>    
                       <Grid item xs={12} style={{textAlign:'center',paddingTop:'2.5%'}}>
                       <Button variant="contained" style={{width:'75%',backgroundColor:"#4db6ac",color:"white"}} onClick={()=>this.editUser()}>Save</Button>

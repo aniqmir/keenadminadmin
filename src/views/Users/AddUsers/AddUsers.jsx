@@ -16,6 +16,34 @@ import Alert from './Alert/Alert.jsx';
 
 const drawerWidth = 300;
 
+const hospitalnames = [
+  {
+    value: 'Department of Corrections',
+    label: 'Department of Corrections',
+  },
+  {
+    value: 'Family Care Partners',
+    label: 'Family Care Partners',
+  },
+  {
+    value: 'MCCI',
+    label: 'MCCI',
+  },
+  {
+    value: 'Memorial Hospital',
+    label: 'Memorial Hospital',
+  },
+  {
+    value: 'Other',
+    label: 'Other',
+  },
+  {
+    value: 'VPA',
+    label: 'VPA',
+  },
+];
+
+
 const styles = theme => ({
   root: {
     display: "flex"
@@ -339,7 +367,7 @@ class PersistentDrawerLeft extends React.Component {
                     onChange={this.handleChange("firstname")}
                     error={this.state.firstname === ''}
                     helperText={
-                    this.state.firstname === '' ? 'Enter Firstn Name' : ''
+                    this.state.firstname === '' ? 'Enter First Name' : ''
                     }
                     // fullWidth
                   />
@@ -515,19 +543,30 @@ class PersistentDrawerLeft extends React.Component {
               xs={12}
               style={{ textAlign: "center", paddingTop: "2.5%" }}
             >
-              <TextField
-                id="outlined-hospital-input"
-                label="Hospital or Clinic"
-                margin="dense"
-                variant="outlined"
-                fullWidth
-                value={this.state.hospital}
-                onChange={this.handleChange("hospital")}
-                error={this.state.hospital === ''}
-                helperText={
-                this.state.hospital === '' ? 'Enter Hospital Name' : ''
-                }
-              />
+            <TextField
+              id="standard-select-hospital-native"
+              select
+              label="Hospital Select"
+              className={classes.textField}
+              value={this.state.hospital}
+              onChange={this.handleChange('hospital')}
+              fullWidth
+              variant="outlined"
+              SelectProps={{
+                native: true,
+                MenuProps: {
+                  className: classes.menu,
+                },
+              }}
+              helperText="Please Select Your hospital"
+              margin="normal"
+            >
+              {hospitalnames.map(option => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+          </TextField>
             </Grid>
             <Grid
               item
