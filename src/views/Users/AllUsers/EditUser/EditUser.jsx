@@ -340,7 +340,45 @@ class PersistentDrawerLeft extends React.Component {
       
                       <Grid item xs={12} md={12}>
                           <Grid container spacing={8}>
+                          <Grid item xs={12} sm={12} md={12}>
+                                  <TextField
+                                  id="outlined-firstname-input"
+                                  label="FirstName"
+                                  name="FirstName"
+                                  margin="dense"
+                                  variant="outlined"
+                                  value={this.state.firstname}
+                                  onChange={this.handleChange('firstname')}
+                                  fullWidth
+                                  />
+                              </Grid>
       
+                              <Grid item xs={12} sm={12} md={12}>
+                                  <TextField
+                                  id="outlined-lastname-input"
+                                  label="LastName"
+                                  name="Username"
+                                  margin="dense"
+                                  variant="outlined"
+                                  value={this.state.lastname}
+                                  onChange={this.handleChange('lastname')}
+                                  fullWidth
+                                  />
+                              </Grid>
+                              <Grid item xs={12} sm={12} md={12}>
+                                  <TextField
+                                  id="outlined-email-input"
+                                  label="Email"
+                                  type="email"
+                                  name="email"
+                                  autoComplete="email"
+                                  margin="dense"
+                                  variant="outlined"
+                                  value={this.state.email}
+                                  onChange={this.handleChange('email')}
+                                  fullWidth
+                                  />
+                              </Grid>
                               <Grid item xs={12} sm={12} md={12}>
                                   <TextField
                                   id="outlined-username-input"
@@ -366,49 +404,7 @@ class PersistentDrawerLeft extends React.Component {
                                   onChange={this.handleChange('displayname')}
                                   />
                               </Grid>
-      
-      
-                              <Grid item xs={12} sm={12} md={12}>
-                                  <TextField
-                                  id="outlined-email-input"
-                                  label="Email"
-                                  type="email"
-                                  name="email"
-                                  autoComplete="email"
-                                  margin="dense"
-                                  variant="outlined"
-                                  value={this.state.email}
-                                  onChange={this.handleChange('email')}
-                                  fullWidth
-                                  />
-                              </Grid>
-      
-                              <Grid item xs={12} sm={12} md={12}>
-                                  <TextField
-                                  id="outlined-firstname-input"
-                                  label="FirstName"
-                                  name="FirstName"
-                                  margin="dense"
-                                  variant="outlined"
-                                  value={this.state.firstname}
-                                  onChange={this.handleChange('firstname')}
-                                  fullWidth
-                                  />
-                              </Grid>
-      
-                              <Grid item xs={12} sm={12} md={12}>
-                                  <TextField
-                                  id="outlined-lastname-input"
-                                  label="LastName"
-                                  name="Username"
-                                  margin="dense"
-                                  variant="outlined"
-                                  value={this.state.lastname}
-                                  onChange={this.handleChange('lastname')}
-                                  fullWidth
-                                  />
-                              </Grid>
-      
+
                               <Grid item xs={12} sm={12} md={12}>
                                   <TextField
                                   id="outlined-number-input"

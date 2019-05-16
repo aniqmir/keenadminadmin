@@ -302,60 +302,7 @@ class PersistentDrawerLeft extends React.Component {
 
             <Grid item xs={12} md={4}>
               <Grid container spacing={8}>
-                <Grid item xs={12} sm={12} md={12}>
-                  <TextField
-                    id="outlined-username-input"
-                    label="Username"
-                    name="Username"
-                    margin="dense"
-                    variant="outlined"
-                    value={this.state.username}
-                    onChange={this.handleChange("username")}
-                    error={this.state.username === ''}
-                    helperText={
-                    this.state.username === '' ? 'Enter Username' : ''
-                    }
-                    // fullWidth
-                  />
-                </Grid>
-
-                <Grid item xs={12} sm={12} md={12}>
-                  <TextField
-                    id="outlined-displayname-input"
-                    label="Display Name"
-                    name="Display Name"
-                    margin="dense"
-                    variant="outlined"
-                    value={this.state.displayname}
-                    onChange={this.handleChange("displayname")}
-                    error={this.state.displayname === ''}
-                    helperText={
-                    this.state.displayname === '' ? 'Enter Display Name' : ''
-                    }
-                    // fullWidth
-                  />
-                </Grid>
-
-                <Grid item xs={12} sm={12} md={12}>
-                  <TextField
-                    id="outlined-email-input"
-                    label="Email"
-                    type="email"
-                    name="email"
-                    autoComplete="email"
-                    margin="dense"
-                    variant="outlined"
-                    value={this.state.email}
-                    onChange={this.handleChange("email")}
-                    error={this.state.email === ''}
-                    helperText={
-                    this.state.email === '' ? 'Enter Email' : ''
-                    }
-                    // fullWidth
-                  />
-                </Grid>
-
-                <Grid item xs={12} sm={12} md={12}>
+              <Grid item xs={12} sm={12} md={12}>
                   <TextField
                     id="outlined-firstname-input"
                     label="FirstName"
@@ -390,7 +337,61 @@ class PersistentDrawerLeft extends React.Component {
                     // fullWidth
                   />
                 </Grid>
+                <Grid item xs={12} sm={12} md={12}>
+                  <TextField
+                    id="outlined-email-input"
+                    label="Email"
+                    type="email"
+                    name="email"
+                    autoComplete="email"
+                    margin="dense"
+                    variant="outlined"
+                    value={this.state.email}
+                    onChange={this.handleChange("email")}
+                    error={this.state.email === ''}
+                    helperText={
+                    this.state.email === '' ? 'Enter Email' : ''
+                    }
+                    // fullWidth
+                  />
+                </Grid>
+                <Grid item xs={12} sm={12} md={12}>
+                  <TextField
+                    id="outlined-username-input"
+                    label="Username"
+                    name="Username"
+                    margin="dense"
+                    variant="outlined"
+                    value={this.state.username}
+                    onChange={this.handleChange("username")}
+                    error={this.state.username === ''}
+                    helperText={
+                    this.state.username === '' ? 'Enter Username' : ''
+                    }
+                    // fullWidth
+                  />
+                </Grid>
 
+                <Grid item xs={12} sm={12} md={12}>
+                  <TextField
+                    id="outlined-displayname-input"
+                    label="Display Name"
+                    name="Display Name"
+                    margin="dense"
+                    variant="outlined"
+                    value={this.state.displayname}
+                    onChange={this.handleChange("displayname")}
+                    error={this.state.displayname === ''}
+                    helperText={
+                    this.state.displayname === '' ? 'Enter Display Name' : ''
+                    }
+                    // fullWidth
+                  />
+                </Grid>
+
+         
+
+     
                 <Grid item xs={12} sm={12} md={12}>
                   <TextField
                     id="outlined-number-input"
@@ -495,7 +496,7 @@ class PersistentDrawerLeft extends React.Component {
                   <TextField
                     id="outlined-password-input"
                     label="Confirm Password"
-                    type="Confirm password"
+                    type="password"
                     autoComplete="current-password"
                     margin="dense"
                     variant="outlined"
